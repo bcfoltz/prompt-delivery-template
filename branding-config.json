@@ -1,0 +1,36 @@
+{
+  "event": {
+    "name": "Your Event Name 2025",
+    "shortName": "Event 2025",
+    "location": "City, State",
+    "dates": "Month DD-DD, 2025",
+    "url": "https://your-event-url.com/"
+  },
+  "branding": {
+    "logo": "logo.png",
+    "logoAlt": "Your Event Name - City, State",
+    "favicon": "logo.png"
+  },
+  "colors": {
+    "primary": "#FF6A13",
+    "primaryHover": "#E55A0E",
+    "secondary": "#002D56",
+    "secondaryHover": "#001A33",
+    "themeColor": "#D44500"
+  },
+  "site": {
+    "title": "Event 2025 - LLM Prompts",
+    "description": "LLM Prompts for Students and Advisors - Event 2025",
+    "heading": "AI-Powered Academic Prompts",
+    "subtitle": "Choose the prompts designed for you"
+  },
+  "pwa": {
+    "appName": "Event 2025 AI Prompts",
+    "appShortName": "Event 2025",
+    "appDescription": "AI-powered academic prompts for your event"
+  },
+  "footer": {
+    "authorName": "Your Name",
+    "authorLinkedIn": "https://www.linkedin.com/in/yourprofile/"
+  }
+}

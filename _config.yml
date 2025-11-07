@@ -1,0 +1,20 @@
+# Jekyll Configuration for GitHub Pages
+exclude:
+  - node_modules/
+  - scripts/
+  - prompts/
+  - tasks/
+  - docs-dev/
+  - docs-archive/
+  - qr-codes/
+  - templates/
+  - package.json
+  - package-lock.json
+  - README.md
+  - CLAUDE.md
+  - TODO.md
+  - FUTURE-IMPROVEMENTS.md
+  - prompt-descriptions.json
+  - prompts-manifest.json
+  - prompt-guide.md
+  - .gitignore

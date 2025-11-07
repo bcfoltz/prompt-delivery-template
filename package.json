@@ -1,0 +1,24 @@
+{
+  "name": "shpe-2025-prompt-delivery",
+  "version": "1.0.0",
+  "description": "Multi-Prompt QR Delivery Page for SHPE Convention 2025",
+  "main": "scripts/build/build-prompts.js",
+  "scripts": {
+    "build": "node scripts/build/build-prompts.js",
+    "qr": "node scripts/generators/qr-codes.js",
+    "qr-pdf-example": "node scripts/generators/pdf-example-qr.js",
+    "qr-audio-example": "node scripts/generators/audio-example-qr.js",
+    "qr-video-example": "node scripts/generators/video-example-qr.js",
+    "pdf": "node scripts/generate-pdf.js",
+    "copy-helper": "node scripts/generators/copy-helper.js",
+    "serve": "npx http-server -p 8080 -o",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "prompts",
+    "qr",
+    "static-site"
+  ],
+  "author": "Brandon Foltz",
+  "license": "MIT"
+}

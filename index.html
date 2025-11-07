@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LLM Prompts for Students and Academic Advisors - SHPE 2025">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SHPE 2025 - LLM Prompts</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/SHPE-2025-logo.webp">
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#D44500">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SHPE 2025">
+  <link rel="apple-touch-icon" href="assets/SHPE-2025-logo.webp">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading prompts...</p>
+  </div>
+
+  <!-- Landing Page -->
+  <main id="landing-page" class="view active">
+    <div class="container">
+      <header>
+        <img src="assets/SHPE-2025-logo.webp" alt="SHPE 2025 National Convention - Philadelphia, PA" class="convention-logo">
+        <h1>AI-Powered Academic Prompts</h1>
+        <p class="subtitle">Choose the prompts designed for you</p>
+      </header>
+
+      <div class="button-group">
+        <button id="btn-students" class="track-button" aria-label="View prompts for students">
+          <span class="button-icon" aria-hidden="true">🎓</span>
+          <span class="button-text">For Students</span>
+        </button>
+
+        <button id="btn-advisors" class="track-button" aria-label="View prompts for advisors">
+          <span class="button-icon" aria-hidden="true">👨‍🏫</span>
+          <span class="button-text">For Advisors</span>
+        </button>
+
+        <button id="btn-study-guides" class="track-button" aria-label="View study tool prompts">
+          <span class="button-icon" aria-hidden="true">📚</span>
+          <span class="button-text">Study Tools</span>
+        </button>
+
+        <button id="btn-student-wellness" class="track-button" aria-label="View student wellness prompts">
+          <span class="button-icon" aria-hidden="true">💚</span>
+          <span class="button-text">Student Wellness</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prompt List View (Students) -->
+  <section id="student-list-view" class="view prompt-list-view" role="region" aria-labelledby="student-heading">
+    <div class="container">
+      <header class="list-header">
+        <button id="back-from-students" class="back-button" aria-label="Back to home">
+          ← Back
+        </button>
+        <h2 id="student-heading">Student Prompts</h2>
+      </header>
+
+      <div id="student-prompts-container" class="prompts-container">
+        <!-- Student prompt items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Prompt List View (Advisors) -->
+  <section id="advisor-list-view" class="view prompt-list-view" role="region" aria-labelledby="advisor-heading">
+    <div class="container">
+      <header class="list-header">
+        <button id="back-from-advisors" class="back-button" aria-label="Back to home">
+          ← Back
+        </button>
+        <h2 id="advisor-heading">Advisor Prompts</h2>
+      </header>
+
+      <div id="advisor-prompts-container" class="prompts-container">
+        <!-- Advisor prompt items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Prompt List View (Study Tools) -->
+  <section id="study-guides-list-view" class="view prompt-list-view" role="region" aria-labelledby="study-guides-heading">
+    <div class="container">
+      <header class="list-header">
+        <button id="back-from-study-guides" class="back-button" aria-label="Back to home">
+          ← Back
+        </button>
+        <h2 id="study-guides-heading">Study Tool Prompts</h2>
+      </header>
+
+      <div id="study-guides-prompts-container" class="prompts-container">
+        <!-- Study guide prompt items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Prompt List View (Student Wellness) -->
+  <section id="student-wellness-list-view" class="view prompt-list-view" role="region" aria-labelledby="student-wellness-heading">
+    <div class="container">
+      <header class="list-header">
+        <button id="back-from-student-wellness" class="back-button" aria-label="Back to home">
+          ← Back
+        </button>
+        <h2 id="student-wellness-heading">Student Wellness Prompts</h2>
+      </header>
+
+      <div id="student-wellness-prompts-container" class="prompts-container">
+        <!-- Student wellness prompt items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Prompt Modal -->
+  <div id="prompt-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="modal-title" class="modal-title">Prompt Title</h2>
+        <button id="close-modal" class="close-button" aria-label="Close modal">
+          ×
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <div id="modal-prompt-content" class="prompt-content">
+          <!-- Prompt content will be dynamically inserted here -->
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="copy-button" class="copy-button">
+          Copy Prompt
+        </button>
+        <p id="copy-message" class="copy-message" aria-live="polite"></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      <a href="https://www.linkedin.com/in/brandonfoltz/" target="_blank" rel="noopener noreferrer" class="footer-author">
+        Brandon Foltz
+        <svg class="footer-linkedin-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <span class="footer-separator">•</span>
+      <a href="https://shpe.org/engage/events/national-convention/" target="_blank" rel="noopener noreferrer" class="footer-event-link">SHPE 2025 National Convention</a>
+    </p>
+  </footer>
+
+  <!-- Load branding configuration first -->
+  <script src="branding-loader.js"></script>
+
+  <!-- Load shared utilities -->
+  <script src="scripts/utils/title-extractor.js"></script>
+
+  <!-- Load application script -->
+  <script src="app.js"></script>
+
+  <!-- Service Worker Registration - DISABLED to fix mobile logo caching issue -->
+  <!-- See docs-dev/MOBILE-LOGO-ISSUE.md for details -->
+  <script>
+    // CRITICAL FIX: Service worker disabled due to persistent cache corruption on mobile devices
+    // The service worker cached an incorrect logo filename (SHPE_2025_logo.webp instead of SHPE-2025-logo.webp)
+    // and this cache is permanent on mobile browsers. 6 different fix attempts all failed.
+    // The only reliable solution is to disable the service worker entirely.
+    //
+    // Trade-off: App loses PWA/offline capability but works correctly online
+    // This is acceptable since convention venues have WiFi and correct functionality > offline mode
+
+    // Unregister ALL existing service workers to clear corrupted caches
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(registration => {
+          console.log('[PWA] Unregistering service worker to clear corrupted cache');
+          registration.unregister();
+        });
+      });
+    }
+
+    // Clear all caches to remove corrupted logo cache
+    if ('caches' in window) {
+      caches.keys().then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cacheName => {
+            console.log('[Cache] Deleting cache:', cacheName);
+            return caches.delete(cacheName);
+          })
+        );
+      });
+    }
+
+    // DO NOT re-register service worker - keep it disabled
+    console.log('[PWA] Service worker disabled - app will run online-only mode');
+  </script>
+</body>
+</html>

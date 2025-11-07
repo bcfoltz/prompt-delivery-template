@@ -1,0 +1,22 @@
+{
+  "name": "SHPE 2025 AI Prompts",
+  "short_name": "SHPE 2025",
+  "description": "AI-powered academic prompts for students and advisors at SHPE 2025 National Convention",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#D44500",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/SHPE-2025-logo.webp",
+      "sizes": "1080x1080",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Prompt Delivery Template Configuration",
+  "description": "Central configuration for prompt delivery site deployment",
+
+  "deployment": {
+    "siteUrl": "https://bcfoltz.github.io/shpe-2025",
+    "gitHubRepo": "bcfoltz/shpe-2025",
+    "cacheVersion": 11
+  },
+
+  "categories": [
+    {
+      "id": "student",
+      "name": "Students",
+      "route": "students",
+      "theme": "student-theme",
+      "icon": "🎓",
+      "buttonLabel": "For Students",
+      "promptsDirectory": "prompts/student/begin",
+      "color": "#FF6A13",
+      "colorHover": "#E55A0E"
+    },
+    {
+      "id": "advisor",
+      "name": "Advisors",
+      "route": "advisors",
+      "theme": "advisor-theme",
+      "icon": "👨‍🏫",
+      "buttonLabel": "For Advisors",
+      "promptsDirectory": "prompts/advisor/begin",
+      "color": "#002D56",
+      "colorHover": "#001A33"
+    },
+    {
+      "id": "study-guides",
+      "name": "Study Tools",
+      "route": "study-guides",
+      "theme": "study-guides-theme",
+      "icon": "📚",
+      "buttonLabel": "Study Tools",
+      "promptsDirectory": "prompts/study-guides/begin",
+      "color": "#7B2CBF",
+      "colorHover": "#5A1E99"
+    },
+    {
+      "id": "student-wellness",
+      "name": "Wellness",
+      "route": "student-wellness",
+      "theme": "student-wellness-theme",
+      "icon": "🌱",
+      "buttonLabel": "Wellness",
+      "promptsDirectory": "prompts/student-wellness/begin",
+      "color": "#2B9348",
+      "colorHover": "#1F6932"
+    }
+  ],
+
+  "build": {
+    "expectedTotalPrompts": 66,
+    "validateDuplicateIds": true,
+    "validateMarketingDescriptions": true
+  },
+
+  "_comments": {
+    "deployment": "Update siteUrl and gitHubRepo when creating new event deployment",
+    "categories": "Add/remove categories as needed. Each requires matching folder structure.",
+    "build": "Build validation settings to ensure data integrity"
+  }
+}

@@ -1,0 +1,966 @@
+/* Multi-Prompt QR Delivery Page - Styles
+   SHPE 2025 Convention
+   Mobile-first responsive design */
+
+/* ================================
+   CSS Reset & Base Styles
+   ================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f5f5f5;
+  background-image:
+    linear-gradient(135deg, rgba(255, 106, 19, 0.03) 0%, rgba(0, 45, 86, 0.03) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0, 45, 86, 0.02) 35px, rgba(0, 45, 86, 0.02) 70px);
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+}
+
+/* Prevent scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ================================
+   Color Palette
+   ================================ */
+
+:root {
+  /* SHPE Brand Colors */
+  --color-shpe-orange: #D44500;
+  --color-shpe-orange-dark: #B83D00;
+  --color-shpe-navy: #002D56;
+  --color-shpe-navy-light: #003D72;
+  --color-shpe-teal: #00A3E0;
+  --color-shpe-teal-dark: #0082B3;
+
+  /* Primary Colors (SHPE Orange) */
+  --color-primary: #D44500;
+  --color-primary-hover: #B83D00;
+
+  /* Secondary Colors (SHPE Navy) */
+  --color-secondary: #002D56;
+  --color-secondary-hover: #003D72;
+
+  /* Accent Colors */
+  --color-accent: #00A3E0;
+  --color-accent-hover: #0082B3;
+
+  /* Status Colors */
+  --color-success: #16a34a;
+  --color-success-hover: #15803d;
+  --color-error: #dc2626;
+
+  /* Text Colors */
+  --color-text: #1f2937;
+  --color-text-dark: #002D56;
+  --color-text-light: #6b7280;
+
+  /* Background Colors */
+  --color-border: #e5e7eb;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-backdrop: rgba(0, 0, 0, 0.5);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Visual Effects */
+  --radius: 0.75rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  --transition: all 0.2s ease;
+}
+
+/* ================================
+   Layout & Container
+   ================================ */
+
+.container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+/* ================================
+   Views (Pages)
+   ================================ */
+
+.view {
+  display: none;
+  min-height: 100vh;
+  padding: var(--spacing-md) 0;
+}
+
+.view.active {
+  display: block;
+}
+
+/* ================================
+   Landing Page
+   ================================ */
+
+#landing-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--spacing-lg) 0;
+}
+
+/* Mobile: reduce vertical centering for better UX */
+@media (max-width: 767px) {
+  #landing-page {
+    align-items: flex-start;
+    padding-top: var(--spacing-xl);
+    min-height: auto;
+    padding-bottom: var(--spacing-lg);
+  }
+}
+
+#landing-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 106, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(0, 163, 224, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#landing-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+#landing-page header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Mobile: more compact header */
+@media (max-width: 767px) {
+  #landing-page header {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+.convention-logo {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto var(--spacing-lg);
+}
+
+/* Mobile: more compact logo */
+@media (max-width: 767px) {
+  .convention-logo {
+    max-width: 220px;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+#landing-page h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+#landing-page .subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.track-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  min-height: 80px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(255, 106, 19, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Advisor button uses Navy theme */
+#btn-advisors {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-hover) 100%);
+  box-shadow: 0 4px 12px rgba(0, 45, 86, 0.3);
+}
+
+/* Study Tools button uses Teal theme */
+#btn-study-guides {
+  background: linear-gradient(135deg, var(--color-shpe-teal-dark) 0%, var(--color-shpe-teal) 100%);
+  box-shadow: 0 4px 12px rgba(0, 163, 224, 0.3);
+}
+
+/* Student Wellness button uses accessible green theme */
+#btn-student-wellness {
+  background: linear-gradient(135deg, #057a55 0%, #059669 100%);
+  box-shadow: 0 4px 12px rgba(5, 122, 85, 0.3);
+}
+
+.track-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.track-button:hover::before,
+.track-button:focus::before {
+  opacity: 1;
+}
+
+.track-button:hover,
+.track-button:focus {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(255, 106, 19, 0.4);
+}
+
+#btn-advisors:hover,
+#btn-advisors:focus {
+  box-shadow: 0 8px 24px rgba(0, 45, 86, 0.4);
+}
+
+#btn-study-guides:hover,
+#btn-study-guides:focus {
+  box-shadow: 0 8px 24px rgba(0, 163, 224, 0.4);
+}
+
+#btn-student-wellness:hover,
+#btn-student-wellness:focus {
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
+}
+
+.track-button:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  font-size: 2rem;
+}
+
+/* ================================
+   Prompt List Views
+   ================================ */
+
+.prompt-list-view {
+  background: var(--color-bg-secondary);
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.list-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  flex: 1;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding: var(--spacing-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-button:hover,
+.back-button:focus {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-primary);
+}
+
+/* ================================
+   Prompt Cards
+   ================================ */
+
+.prompts-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.prompt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  width: 100%;
+  min-height: 72px;
+  padding: var(--spacing-md) var(--spacing-md);
+  text-align: left;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.prompt-card:hover,
+.prompt-card:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 16px rgba(255, 106, 19, 0.15);
+  transform: translateY(-3px) scale(1.01);
+}
+
+.prompt-card:active {
+  transform: translateY(0);
+}
+
+.prompt-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.prompt-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.prompt-card-description {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.prompt-card-arrow {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Advisor section uses Navy theme */
+#advisor-list-view .prompt-card:hover,
+#advisor-list-view .prompt-card:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 6px 16px rgba(0, 45, 86, 0.15);
+}
+
+#advisor-list-view .prompt-card-arrow {
+  color: var(--color-secondary);
+}
+
+#advisor-list-view .back-button {
+  color: var(--color-secondary);
+}
+
+#advisor-list-view .back-button:hover,
+#advisor-list-view .back-button:focus {
+  border-color: var(--color-secondary);
+}
+
+/* ================================
+   Viewed Prompt Indicator
+   ================================ */
+
+.prompt-card.viewed {
+  opacity: 0.65;
+}
+
+.prompt-card.viewed:hover,
+.prompt-card.viewed:focus {
+  opacity: 1;
+}
+
+.viewed-indicator {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-success);
+  background: var(--color-bg);
+  border: 2px solid var(--color-success);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ================================
+   Modal
+   ================================ */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-backdrop);
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  margin: var(--spacing-md);
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease;
+  z-index: 1001;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-text-light);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.close-button:hover,
+.close-button:focus {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.modal-body {
+  flex: 1;
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prompt-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  word-wrap: break-word;
+}
+
+.prompt-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.prompt-content h2:first-child {
+  margin-top: 0;
+}
+
+.prompt-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.prompt-content p:last-child {
+  margin-bottom: 0;
+}
+
+.prompt-content ul {
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.prompt-content ol {
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.prompt-content li {
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.6;
+}
+
+.prompt-content li:last-child {
+  margin-bottom: 0;
+}
+
+.prompt-content pre {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  overflow-x: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.prompt-content code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.modal-footer {
+  padding: var(--spacing-md);
+  border-top: 2px solid var(--color-border);
+  text-align: center;
+}
+
+/* ================================
+   Copy Button
+   ================================ */
+
+.copy-button {
+  width: 100%;
+  min-height: 56px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(255, 106, 19, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.copy-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-button:hover::before,
+.copy-button:focus::before {
+  opacity: 1;
+}
+
+.copy-button:hover,
+.copy-button:focus {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 20px rgba(255, 106, 19, 0.4);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+}
+
+.copy-button.success {
+  background: var(--color-success);
+}
+
+.copy-button.success:hover,
+.copy-button.success:focus {
+  background: var(--color-success-hover);
+}
+
+/* Advisor modal uses Navy theme for copy button */
+.modal.advisor-theme .copy-button {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-hover) 100%);
+  box-shadow: 0 4px 12px rgba(0, 45, 86, 0.3);
+}
+
+.modal.advisor-theme .copy-button:hover,
+.modal.advisor-theme .copy-button:focus {
+  box-shadow: 0 6px 20px rgba(0, 45, 86, 0.4);
+}
+
+/* Student Wellness modal uses Green theme for copy button */
+.modal.student-wellness-theme .copy-button {
+  background: linear-gradient(135deg, #057a55 0%, #059669 100%);
+  box-shadow: 0 4px 12px rgba(5, 122, 85, 0.3);
+}
+
+.modal.student-wellness-theme .copy-button:hover,
+.modal.student-wellness-theme .copy-button:focus {
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.copy-message {
+  margin-top: var(--spacing-sm);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-message.visible {
+  opacity: 1;
+}
+
+.copy-message.error {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
+/* ================================
+   Animations
+   ================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  #landing-page h1 {
+    font-size: 2.5rem;
+  }
+
+  .modal-content {
+    max-height: 85vh;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    padding: var(--spacing-xl);
+  }
+
+  .button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .track-button {
+    min-height: 120px;
+  }
+
+  .prompt-card {
+    min-height: 80px;
+    padding: var(--spacing-lg);
+  }
+
+  .modal-content {
+    max-height: 80vh;
+  }
+}
+
+/* ================================
+   Site Footer
+   ================================ */
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-sm);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  z-index: 100;
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.footer-author {
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: var(--transition);
+  border-bottom: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.footer-author:hover,
+.footer-author:focus {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.footer-linkedin-icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: var(--transition);
+}
+
+.footer-separator {
+  margin: 0 0.5rem;
+  color: var(--color-border);
+}
+
+.footer-event-link {
+  font-weight: 500;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  border-bottom: 1px solid transparent;
+}
+
+.footer-event-link:hover,
+.footer-event-link:focus {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ================================
+   Loading Overlay
+   ================================ */
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(245, 245, 245, 0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.loading-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================
+   Accessibility
+   ================================ */
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+.prompt-card:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000;
+  }
+
+  .track-button,
+  .copy-button,
+  .prompt-card {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ================================
+   Print Styles
+   ================================ */
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .modal-backdrop,
+  .back-button,
+  .close-button,
+  .copy-button {
+    display: none;
+  }
+
+  .modal-content {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

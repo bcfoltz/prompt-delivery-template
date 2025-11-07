@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHPE 2025 - QR Code Preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #002D56;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .qr-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .qr-card h2 {
+      color: #D44500;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .qr-code {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin: 1rem 0;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+    }
+    .url {
+      font-family: monospace;
+      font-size: 0.875rem;
+      color: #6b7280;
+      word-break: break-all;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background: #f9fafb;
+      border-radius: 4px;
+    }
+    .download-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .download-links a {
+      color: #D44500;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 2px solid #D44500;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .download-links a:hover {
+      background: #D44500;
+      color: white;
+    }
+    .instructions {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .instructions h2 {
+      color: #002D56;
+      margin-bottom: 1rem;
+    }
+    .instructions ul {
+      margin-left: 2rem;
+    }
+    .instructions li {
+      margin-bottom: 0.5rem;
+    }
+    @media print {
+      body { background: white; }
+      .instructions { display: none; }
+      .download-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SHPE 2025 QR Codes</h1>
+    <p class="subtitle">Scan with your phone to test</p>
+
+    <div class="grid">
+      
+      <div class="qr-card">
+        <h2>SHPE 2025 - AI-Powered Academic Prompts</h2>
+        <p>Main landing page with all 66 prompts (Students, Advisors, Study Tools, Wellness)</p>
+        <img src="qr-main.png" alt="SHPE 2025 - AI-Powered Academic Prompts QR Code" class="qr-code">
+        <div class="url">https://bcfoltz.github.io/shpe-2025</div>
+        <div class="download-links">
+          <a href="qr-main.png" download>Download PNG</a>
+          <a href="qr-main.svg" download>Download SVG</a>
+        </div>
+      </div>
+      
+      <div class="qr-card">
+        <h2>Download Prompts Package</h2>
+        <p>ZIP file with all 66 prompts and README guide</p>
+        <img src="qr-download-zip.png" alt="Download Prompts Package QR Code" class="qr-code">
+        <div class="url">https://bcfoltz.github.io/shpe-2025/prompts-download.zip</div>
+        <div class="download-links">
+          <a href="qr-download-zip.png" download>Download PNG</a>
+          <a href="qr-download-zip.svg" download>Download SVG</a>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="instructions">
+      <h2>📋 Usage Instructions</h2>
+      <ul>
+        <li><strong>For Posters/Banners:</strong> Use SVG files (scalable to any size)</li>
+        <li><strong>For Digital Displays:</strong> Use PNG files (1000x1000px)</li>
+        <li><strong>For Printing:</strong> Ensure QR code is at least 2 inches (5cm) square</li>
+        <li><strong>Testing:</strong> Scan from 3-6 feet to verify scanability</li>
+        <li><strong>Colors:</strong> SHPE Orange (#D44500) on white background</li>
+      </ul>
+
+      <h2 style="margin-top: 2rem;">🎯 Recommended Sizes</h2>
+      <ul>
+        <li><strong>Convention Poster:</strong> 6-12 inches (15-30 cm)</li>
+        <li><strong>Handout Cards:</strong> 2-4 inches (5-10 cm)</li>
+        <li><strong>Presentation Slides:</strong> 4-6 inches (10-15 cm)</li>
+        <li><strong>Table Tents:</strong> 3-5 inches (8-12 cm)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
